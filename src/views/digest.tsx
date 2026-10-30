@@ -10,6 +10,7 @@ export function DigestPage({ night, digest }: { night: string; digest: NightDige
       {digest.rows.length === 0 ? (
         <p class="mute">nothing ran</p>
       ) : (
+        <div class="table-scroll" role="region" aria-label="Nightly run digest" tabindex={0}>
         <table>
           <thead>
             <tr>
@@ -33,6 +34,7 @@ export function DigestPage({ night, digest }: { night: string; digest: NightDige
             ))}
           </tbody>
         </table>
+        </div>
       )}
     </>
   );
