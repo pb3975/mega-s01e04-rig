@@ -1,5 +1,7 @@
 import { readFileSync } from 'node:fs';
 
+export const HOST = '127.0.0.1';
+
 export type RigConfig = {
   adapter: string;
   installed: string;

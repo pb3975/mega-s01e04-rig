@@ -10,7 +10,16 @@ describe('status board', () => {
     const html = await res.text();
     expect(res.status).toBe(200);
     expect(html).toContain('TEST-MARKER');
-    expect(html).toContain('2026-10-28');
+    for (const [night, counts] of [
+      ['2026-10-28', 'ok 10 · retry 4 · fail 1'],
+      ['2026-10-27', 'ok 7 · retry 0 · fail 0'],
+    ]) {
+      expect(html).toContain(`href="/digest/${night}"`);
+      expect(html).toContain(counts);
+      const digest = await createApp(config).request(`/digest/${night}`);
+      expect(digest.status).toBe(200);
+      expect(await digest.text()).toContain(`digest · ${night}`);
+    }
   });
 
   it('health answers with the lane id', async () => {
