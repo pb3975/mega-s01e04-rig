@@ -9,4 +9,8 @@ pnpm install
 pnpm dev               # http://localhost:8787
 ```
 
+The server binds to `127.0.0.1`; it is intended for local use only. CI uses Node 22 and pnpm
+12.2.1. Run `pnpm install --frozen-lockfile`, `pnpm test`, `pnpm typecheck`, and
+`git diff --check` to reproduce the pull request checks.
+
 Working on it with an agent: start at [AGENTS.md](AGENTS.md).
