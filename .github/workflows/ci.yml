@@ -8,6 +8,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
       - uses: pnpm/action-setup@v4
         with:
           version: 12.2.1
@@ -19,3 +21,12 @@ jobs:
       - run: pnpm test
       - run: pnpm typecheck
       - run: git diff --check
+      - name: Capture before and after screenshots
+        env:
+          BASE_REF: ${{ github.event.pull_request.base.sha }}
+        run: bash scripts/pr-screenshots.sh "$BASE_REF"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: before-after-screenshots
+          path: var/screenshots/*.png
+          if-no-files-found: error
