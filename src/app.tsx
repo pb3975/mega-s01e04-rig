@@ -27,13 +27,18 @@ export function createApp(config: RigConfig = loadConfig()) {
     );
   });
 
-  app.get('/', (c) =>
-    c.html(
+  app.get('/', (c) => {
+    const status = readStatus(config);
+    const digests = status.nights.flatMap((night) => {
+      const digest = readNight(config.runsDir, night);
+      return digest ? [{ night, counts: digest.counts }] : [];
+    });
+    return c.html(
       <Layout title="status" lane={lane()}>
-        <StatusBoard status={readStatus(config)} />
+        <StatusBoard status={status} digests={digests} />
       </Layout>,
-    ),
-  );
+    );
+  });
 
   return app;
 }
