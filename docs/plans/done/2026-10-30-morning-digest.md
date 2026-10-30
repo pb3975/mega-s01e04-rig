@@ -1,8 +1,9 @@
 ---
 plan: morning-digest
-status: ready
+status: done
 owner: rook
 opened: 2026-10-29
+closed: 2026-10-30
 ---
 
 # Morning digest
@@ -77,3 +78,21 @@ page again with `LANE_MARKER` unset (the banner reads "no marker set") and uploa
 link. Move this plan to `docs/plans/done/` with its issue list.
 
 Done when: the preview link no longer shows the lane marker.
+
+## Issues
+
+- [#1 Digest contract](https://github.com/pb3975/mega-s01e04-rig/issues/1)
+- [#2 Run log reader](https://github.com/pb3975/mega-s01e04-rig/issues/2)
+- [#3 Digest page](https://github.com/pb3975/mega-s01e04-rig/issues/3)
+- [#4 Digest JSON](https://github.com/pb3975/mega-s01e04-rig/issues/4)
+- [#5 Board links](https://github.com/pb3975/mega-s01e04-rig/issues/5)
+- [#6 Route tests](https://github.com/pb3975/mega-s01e04-rig/issues/6)
+- [#7 Review preview](https://github.com/pb3975/mega-s01e04-rig/issues/7)
+- [#8 Preview cleanup](https://github.com/pb3975/mega-s01e04-rig/issues/8)
+
+## Completion evidence
+
+- [PR #9](https://github.com/pb3975/mega-s01e04-rig/pull/9) implemented the digest, matching JSON endpoint, board links, review export, and CI screenshot capture.
+- Validation: 13 tests and TypeScript checking passed.
+- The reviewer saw the marked preview through the course claim. The approved replacement was verified at the same URL: [morning digest preview](https://mega-s01e04-rig-pb3975.citrusowlet38.chatgpt.site). It has no original marker and displays the “no marker set” banner.
+- Course final acceptance is still pending; this records the preview cleanup and does not claim the challenge is solved.
